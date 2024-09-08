@@ -1,0 +1,73 @@
+[
+    {
+        "name": "CARNE",
+        "price": "7.25",
+        "model": "beef"
+    },
+    {
+        "name": "CEBOLLA",
+        "price": "1.67",
+        "model": "cebolla"
+    },
+    {
+        "name": "JAMON",
+        "price": "3.45",
+        "model": "jamon"
+    },
+    {
+        "name": "ACEITE_OLIVA",
+        "price": "11.83",
+        "model": "aceite_oliva"
+    },
+    {
+        "name": "ARROZ",
+        "price": "1.17",
+        "model": "rice"
+    },
+    {
+        "name": "HUEVO",
+        "price": "4.97",
+        "model": "huevo"
+    },
+    {
+        "name": "SAL",
+        "price": "1.17",
+        "model": "salt"
+
+    },
+    {
+        "name": "PATATAS",
+        "price": "2.47",
+        "model": "patatas"
+    },
+    {
+        "name": "PAN",
+        "price": "4.15",
+        "model": "bread"
+    },
+    {
+        "name": "PEPINO",
+        "price": "2.30",
+        "model": "pepino"
+    },
+    {
+        "name": "TOMATE",
+        "price": "2.98",
+        "model": "tomate"
+    },
+    {
+        "name": "PIMIENTO",
+        "price": "2.30",
+        "model": "pimiento"
+    },
+    {
+        "name": "CAMARON",
+        "price": "11.99",
+        "model": "shrimp"
+    },
+    {
+        "name": "CALAMAR",
+        "price": "22.90",
+        "model": "squid"
+    }
+]
