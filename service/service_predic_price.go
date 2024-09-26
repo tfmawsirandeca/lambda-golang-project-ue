@@ -83,13 +83,12 @@ var hasModelol = map[string]bool{
 }
 
 func ProcessItems(ctx context.Context, request types.RequestBody) (types.ApiResponse, error) {
-	var itemsFinal []types.ItemProduct
-	//url := "https://9n2ncmueqe.execute-api.us-east-1.amazonaws.com/Prod/webscraping"
-	//url := "https://7c75-95-18-16-108.ngrok-free.app/webscraping"
-	// items, err := gateway.Post(url, make([]byte, 0))
-	// if err != nil {
-	// 	return types.ApiResponse{}, err
-	// }
+	// var itemsFinal []types.ItemProduct
+	url := "https://c6kkns9bqe.execute-api.us-east-1.amazonaws.com/Prod/webscraping"
+	items, err := gateway.Post(url, make([]byte, 0))
+	if err != nil {
+		return types.ApiResponse{}, err
+	}
 
 	currentTime := time.Now()
 	// Format the date to "YYYY-MM-DD"
@@ -183,33 +182,11 @@ func ProcessItems(ctx context.Context, request types.RequestBody) (types.ApiResp
 		UnitMeasure: "kg",
 	}
 
-	newItemAceite := types.ItemProduct{
-		Name:        "ACEITE_OLIVA",
-		Price:       "730.0",
-		Description: "1",
-		UnitMeasure: "kg",
-	}
-
-	newItemCalamar := types.ItemProduct{
-		Name:        "CALAMAR",
-		Price:       "22.90",
-		Description: "1",
-		UnitMeasure: "kg",
-	}
-
-	newItemCamaron := types.ItemProduct{
-		Name:        "CAMARON",
-		Price:       "11.99",
-		Description: "1",
-		UnitMeasure: "kg",
-	}
-
 	// Append items to the slice
-	itemsFinal = append(itemsFinal, newItemSal, newItemAjo, newItemArroz, newItemCebolla, newItemCarne,
-		newItemHuevo, newItemPan, newItemPatata, newItemJamon, newItemPepino, newItemPimiento, newItemTomate,
-		newItemAceite, newItemCalamar, newItemCamaron)
+	items = append(items, newItemSal, newItemAjo, newItemArroz, newItemCebolla, newItemCarne,
+		newItemHuevo, newItemPan, newItemPatata, newItemJamon, newItemPepino, newItemPimiento, newItemTomate)
 
-	for _, item := range itemsFinal {
+	for _, item := range items {
 		wg.Add(1)
 		go func(item types.ItemProduct) {
 			defer wg.Done()
@@ -225,8 +202,6 @@ func ProcessItems(ctx context.Context, request types.RequestBody) (types.ApiResp
 						"PRICE": {item.Price},
 					},
 				}
-				fmt.Print("IRENE")
-				fmt.Print(inputData)
 				resultMap, err := gateway.InvokeSageMaker(ctx, inputData)
 				if err != nil {
 					fmt.Println("error sage maker")

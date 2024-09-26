@@ -3,7 +3,6 @@ package gateway
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"go-lambda-sagemaker/types"
 	"io/ioutil"
 	"net/http"
@@ -21,7 +20,6 @@ func Post(url string, data []byte) ([]types.ItemProduct, error) {
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println(body)
 	// Unmarshal the JSON response into a slice of ItemProduct
 	var products []types.ItemProduct
 	err = json.Unmarshal(body, &products)

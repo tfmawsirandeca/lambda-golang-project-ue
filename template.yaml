@@ -4,7 +4,7 @@ Description: Web scraping project with CORS enabled. This setup includes an API 
 
 Globals:
   Function:
-    Timeout: 5
+    Timeout: 60
     MemorySize: 128
     Tracing: Active
     LoggingConfig:
